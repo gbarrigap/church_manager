@@ -1,11 +1,11 @@
-<%= content_for :title, 'My Church' %>
+<%= content_for :title, t('general.my_church') %>
 
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="general-info-tab" data-toggle="tab" href="#general-info" role="tab" aria-controls="general-info" aria-selected="true">General Info</a>
+    <a class="nav-link active" id="general-info-tab" data-toggle="tab" href="#general-info" role="tab" aria-controls="general-info" aria-selected="true"><%= t('general.general_info') %></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="priests-tab" data-toggle="tab" href="#priests" role="tab" aria-controls="priests" aria-selected="false">Priests</a>
+    <a class="nav-link" id="priests-tab" data-toggle="tab" href="#priests" role="tab" aria-controls="priests" aria-selected="false"><%= t('general.priests') %></a>
   </li>
 </ul>
 

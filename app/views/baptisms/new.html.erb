@@ -1,4 +1,4 @@
-<%= content_for :title, 'New Baptism' %>
+<%= content_for :title, t('general.new_baptism') %>
 
 <div class="row">
   <div class="col">
@@ -9,7 +9,7 @@
     <% [:baptised, :mother, :father, :godmother, :godfather].each do |role| %>
     <div class="card d-none side-fields">
       <div class="card-header">
-        <h3 class="card-title"><%= role %></h3>
+        <h3 class="card-title"><%= t("activerecord.attributes.baptism.#{role}") %></h3>
       </div>
       <div class="card-body" id="<%= role %>_fields">
         <%= render partial: 'people/nin_form', locals: { selector: "##{role}_fields", related_selector: "#baptism_#{role}" } %>

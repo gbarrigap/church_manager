@@ -11,12 +11,12 @@
 
 <% [:baptised, :mother, :father, :godmother, :godfather].each do |role| %>
 <div class="form-group">
-  <%= label_tag role, nil, for: "btn-#{role}" %>
+  <%= label_tag t("activerecord.attributes.baptism.#{role}"), nil, for: "btn-#{role}" %>
   <div class="input-group">
     <%= label_tag @baptism.send(role).name_for_display, nil, for: "btn-#{role}", class: 'form-control', id: "baptism_#{role}" %>
     <%= form.hidden_field "#{role}_id" %>
     <div class="input-group-append">
-      <%= form.button 'Edit', type: 'button',
+      <%= form.button t('general.edit'), type: 'button',
                               id: "btn-#{role}",
                               class: 'btn btn-secondary',
                               data: { command: 'toggle',

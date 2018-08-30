@@ -1,4 +1,4 @@
-<%= content_for :title, 'Baptism' %>
+<%= content_for :title, t('general.baptism') %>
 
 <%= form_with model: @baptism do |form| %>
 <div class="form-group">
@@ -36,6 +36,6 @@
   <%= form.text_field :godfather_name_for_display, class: 'form-control', readonly: true %>
 </div>
 
-<%= link_to fa_icon('print', text: 'Print Baptism'), print_baptism_path, class: 'btn btn-primary', target: '_blank' %>
+<%= link_to fa_icon('print', text: t('baptisms.show.print')), print_baptism_path, class: 'btn btn-primary', target: '_blank' %>
 
 <% end %>

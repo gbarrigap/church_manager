@@ -1,0 +1,105 @@
+es:
+  general:
+
+    home: 'Inicio'
+    baptisms: 'Bautismos'
+    account: 'Mi Cuenta'
+
+    my_church: 'Mi Parroquia'
+    general_info: 'Información General'
+    priests: 'Sacerdotes'
+
+    new_baptism: 'Nuevo Bautismo'
+    new_first_communion: 'Nueva Primera Comunión'
+    new_confirmation: 'Nueva Confirmación'
+    new_marriage: 'Nuevo Matrimonio'
+
+    find_baptism: 'Buscar Bautismo'
+    find_first_communion: 'Buscar Primera Comunión'
+    find_confirmation: 'Buscar Confirmación'
+    find_marriage: 'Buscar Matrimonio'
+
+    profile: 'Mi Perfil'
+    settings: 'Configuración'
+    log_out: 'Cerrar Sesión'
+
+    read_the_docs: 'Documentación'
+
+    view: 'Ver'
+    edit: 'Editar'
+    next: 'Siguiente'
+    change: 'Cambiar'
+
+    developed_by: 'Desarrollado por'
+
+  activerecord:
+    models:
+      baptism: 'Bautismo'
+      church: 'Parroquia'
+    attributes:
+      priest:
+        first_name: 'Nombre'
+        last_name: 'Apellidos'
+        full_name: 'Nombre Completo'
+        display_name: 'Nombre en Pantalla'
+        active: 'Activo'
+      person:
+        nin: 'R.U.T.'
+        first_name: 'Nombre'
+        last_name: 'Apellidos'
+        display_name: 'Nombre en Pantalla'
+        avatar_url: 'URL del Avatar'
+        birth_date: 'Fecha de Nacimiento'
+        birth_commune: 'Comuna de Nacimiento'
+      baptism:
+        date: 'Fecha'
+        priest: 'Sacerdote'
+        baptised: 'Bautizado'
+        mother: 'Madre'
+        father: 'Padre'
+        godmother: 'Madrina'
+        godfather: 'Padrino'
+      church:
+        name: 'Nombre'
+        manager: 'Encargado'
+        street_name: 'Calle'
+        street_number: 'Número'
+        region: 'Región'
+        province: 'Provincia'
+        commune: 'Comuna'
+
+  helpers:
+    submit:
+      church:
+        create: 'Crear Parroquia'
+        update: 'Actualizar Parroquia'
+      priest:
+        create: 'Crear Sacerdote'
+        update: 'Actualizar Sacerdote'
+      baptism:
+        create: 'Registrar Bautismo'
+
+  priests:
+    create:
+      title: 'Nuevo Sacerdote'
+      text: 'El sacerdote %{name} ha sido creado exitosamente'
+    update:
+      title: 'Actualizar Sacerdote'
+      text: 'El sacerdote %{name} ha sido actualizado exitosamente'
+    edit:
+      title: 'Editar Sacerdote'
+
+  baptisms:
+    show:
+      print: 'Imprimir Certificado'
+    create:
+      title: 'Nuevo Bautismo'
+      text: 'El bautismo ha sido creado exitosamente'
+    update:
+      title: 'Actualizar Bautismo'
+      text: 'El bautismo ha sido actualizado exitosamente'
+
+  churches:
+    update:
+      title: 'Actualización de Datos'
+      text: 'Los datos de la parroquia han sido actualizados exitosamente'

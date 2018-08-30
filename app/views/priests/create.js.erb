@@ -1,6 +1,6 @@
 swal({
-  title: 'New Priest',
-  text: 'The priest <%= @priest.display_name %> has been created successfully!',
+  title: '<%= t("priests.create.title") %>',
+  text: '<%= t("priests.create.text", name: @priest.display_name) %>',
   type: 'success'
 }).then(() => {
   let node = $('table#priests').DataTable().row.add($("<%= escape_javascript(render partial: 'priests/priest_row', locals: { priest_row: @priest }) %>")).draw().node();

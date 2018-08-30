@@ -1,7 +1,7 @@
 <%= form_with model: @priest do |form| %>
 
 <div class="modal-header">
-  <h5 class="modal-title" id="modal-label">Edit Priest</h5>
+  <h5 class="modal-title" id="modal-label"><%= t('priests.edit.title') %></h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -24,7 +24,6 @@
       <%= form.text_field :display_name, class: 'form-control' %>
     </div>
   </div>
-
 </div>
 
 <div class="modal-footer">

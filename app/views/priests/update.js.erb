@@ -1,6 +1,6 @@
 swal({
-  title: 'Update Priest',
-  text: 'The priest has been updated successfully!',
+  title: '<%= t("priests.update.title") %>',
+  text: '<%= t("priests.update.text", name: @priest.display_name) %>',
   type: 'success'
 }).then(() => {
   $('.modal').modal('hide');

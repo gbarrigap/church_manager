@@ -9,7 +9,7 @@
     <% [:baptised, :mother, :father, :godmother, :godfather].each do |role| %>
     <div class="card d-none side-fields">
       <div class="card-header">
-        <h3 class="card-title"><%= role.to_s.titleize %></h3>
+        <h3 class="card-title"><%= t("activerecord.attributes.baptism.#{role}") %></h3>
       </div>
       <div class="card-body" id="<%= role %>_fields">
         <%= render partial: 'people/person', locals: { person: @baptism.send(role), selector: "##{role}_fields", related_selector: "#baptism_#{role}" } %>
