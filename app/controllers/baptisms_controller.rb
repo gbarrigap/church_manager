@@ -45,7 +45,7 @@ class BaptismsController < ApplicationController
   def print
     @baptism = Baptism.find(params[:id])
     pdf = BaptismPdf.new(@baptism)
-    send_data pdf.render, filename: 'baptism.pdf',
+    send_data pdf.render, filename: 'print.pdf',
                           type: 'application/pdf',
                           disposition: 'inline'
   end
