@@ -1,8 +1,4 @@
-<%= form_with model: @church, data: { command: 'update',
-                                      entity: 'church',
-                                      msg_title: 'Update Church',
-                                      msg_text: 'The church has been updated successfully',
-                                      msg_type: 'success' } do |form| %>
+<%= form_with model: @church do |form| %>
 <div class="card-body">
   <div class="row">
     <div class="col-8">
