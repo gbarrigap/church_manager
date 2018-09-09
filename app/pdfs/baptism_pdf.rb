@@ -15,7 +15,7 @@ class BaptismPdf < Prawn::Document
         })
         font_size(36) do
             font 'FiraSans', style: :italic
-            text 'Certificado de Bautismo', align: :center
+            text I18n.t('pdfs.baptism.header'), align: :center
         end
     end
 
@@ -24,15 +24,18 @@ class BaptismPdf < Prawn::Document
         default_leading 7
         move_down 100
         span(400, position: :center) do
-            text "En la iglesia parroquial #{baptism.church_name} el #{baptism.date.strftime('%d de %B de %Y')} " +
-                 "bautizó y puso óleo y crisma #{baptism.priest_name_for_display} " +
-                 "a #{baptism.baptised_name_for_display}, que nació en " +
-                 "#{baptism.baptised_birth_commune_name} el #{baptism.baptised_birth_date.strftime('%d de %B de %Y')} " +
-                 "R.U.N.: #{baptism.baptised_nin_for_display} " +
-                 "hijo de #{baptism.father_name_for_display} " +
-                 "y de #{baptism.mother_name_for_display} " +
-                 "Padrinos: #{baptism.godfather_name_for_display} y #{baptism.godmother_name_for_display}."
+            text I18n.t('pdfs.baptism.content',
+                    church: baptism.church_name,
+                    date: baptism.date.strftime('%d de %B de %Y'),
+                    priest: baptism.priest_name_for_display,
+                    baptised: baptism.baptised_name_for_display,
+                    baptised_commune: baptism.baptised_birth_commune_name,
+                    baptised_birth: baptism.baptised_birth_date.strftime('%d de %B de %Y'),
+                    baptised_nin: baptism.baptised_nin_for_display,
+                    father: baptism.father_name_for_display,
+                    mother: baptism.mother_name_for_display,
+                    godfather: baptism.godfather_name_for_display,
+                    godmother: baptism.godmother_name_for_display)
         end
     end
-
 end

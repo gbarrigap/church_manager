@@ -103,3 +103,16 @@ es:
     update:
       title: 'Actualización de Datos'
       text: 'Los datos de la parroquia han sido actualizados exitosamente'
+
+  pdfs:
+    baptism:
+      header: 'Certificado de Bautismo'
+      content: >
+        En la iglesia parroquial %{church} el %{date}
+        bautizó y puso óleo y crisma %{priest}
+        a %{baptised}, que nació en
+        %{baptised_commune} el %{baptised_birth}
+        R.U.N.: %{baptised_nin}
+        hijo de %{father}
+        y de %{mother}
+        Padrinos: %{godfather} y %{godmother}.
