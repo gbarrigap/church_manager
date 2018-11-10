@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_04_17_011843) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.string "street_name", null: false
     t.integer "street_number", null: false
@@ -19,8 +22,8 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
     t.string "zip_code"
     t.decimal "latitude", precision: 10, scale: 4
     t.decimal "longitude", precision: 10, scale: 4
-    t.integer "commune_id"
-    t.integer "church_id"
+    t.bigint "commune_id"
+    t.bigint "church_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["church_id"], name: "index_addresses_on_church_id"
@@ -28,12 +31,12 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
   end
 
   create_table "baptisms", force: :cascade do |t|
-    t.integer "priest_id"
-    t.integer "baptised_id"
-    t.integer "mother_id"
-    t.integer "father_id"
-    t.integer "godfather_id"
-    t.integer "godmother_id"
+    t.bigint "priest_id"
+    t.bigint "baptised_id"
+    t.bigint "mother_id"
+    t.bigint "father_id"
+    t.bigint "godfather_id"
+    t.bigint "godmother_id"
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
   end
 
   create_table "communes", force: :cascade do |t|
-    t.integer "province_id"
+    t.bigint "province_id"
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,14 +70,14 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
     t.string "display_name"
     t.string "avatar_url"
     t.datetime "birth_date"
-    t.integer "birth_commune_id"
+    t.bigint "birth_commune_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["birth_commune_id"], name: "index_people_on_birth_commune_id"
   end
 
   create_table "priests", force: :cascade do |t|
-    t.integer "church_id"
+    t.bigint "church_id"
     t.string "first_name"
     t.string "last_name"
     t.string "display_name"
@@ -85,7 +88,7 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
   end
 
   create_table "provinces", force: :cascade do |t|
-    t.integer "region_id"
+    t.bigint "region_id"
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,4 +101,16 @@ ActiveRecord::Schema.define(version: 2018_04_17_011843) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "addresses", "churches"
+  add_foreign_key "addresses", "communes"
+  add_foreign_key "baptisms", "people", column: "baptised_id"
+  add_foreign_key "baptisms", "people", column: "father_id"
+  add_foreign_key "baptisms", "people", column: "godfather_id"
+  add_foreign_key "baptisms", "people", column: "godmother_id"
+  add_foreign_key "baptisms", "people", column: "mother_id"
+  add_foreign_key "baptisms", "priests"
+  add_foreign_key "communes", "provinces"
+  add_foreign_key "people", "communes", column: "birth_commune_id"
+  add_foreign_key "priests", "churches"
+  add_foreign_key "provinces", "regions"
 end
